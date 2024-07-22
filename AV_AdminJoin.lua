@@ -89,7 +89,7 @@ local AdditionalAdmins = {
 local AdminInServer = false
 
 local function CheckIfAdmin(Player)
-	if Player:IsInGroup(5473411) or AdditionalAdmins[Player.Name] then
+	if Player:IsInGroup(7638348) or AdditionalAdmins[Player.Name] then
 		return true
 	else
 		return false
