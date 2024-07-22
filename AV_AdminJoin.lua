@@ -102,8 +102,9 @@ local function MainHandler(Player, Action)
 		if CheckPlayer == true and game.Players:FindFirstChild(Player.Name) then
 			AdminInServer = true
 			AdminJoin.Enabled = true
+            print("Staff found", Player.Name)
 		else
-			AdminJoin.Enabled = false
+            print("Player is not staff", Player.Name)
 		end
 	end
 	if Action == "IgnoreMessage" then
