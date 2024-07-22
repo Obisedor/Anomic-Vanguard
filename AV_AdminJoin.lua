@@ -1,3 +1,5 @@
+-- NOTHING TO SEE RGIE, BUT ENJOY THIS OPEN SOURCE SCRIPT
+
 -- Gui to Lua
 -- Version: 3.2
 
