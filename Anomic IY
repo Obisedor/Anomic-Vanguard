@@ -11,7 +11,6 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
-local god = false
 
 ver = '1.6.5'
 
@@ -4354,13 +4353,6 @@ end
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'silence / johnwick', DESC = 'Completely suppress held firearm [Toggle] *Will not work on shotguns*'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
-CMDs[#CMDs + 1] = {NAME = 'innocent', DESC = 'Hehe :trol'}
-CMDs[#CMDs + 1] = {NAME = 'loopheal / god', DESC = 'OMG ABIN ABOOZ'}
-CMDs[#CMDs + 1] = {NAME = 'hide', DESC = 'Yeah'}
-CMDs[#CMDs + 1] = {NAME = 'unhide', DESC = 'Mhm'}
-CMDs[#CMDs + 1] = {NAME = 'unloopheal / ungod', DESC = 'No more ABIN ABOOZ'}
-CMDs[#CMDs + 1] = {NAME = 'rainbowtool', DESC = 'Funny tool'}
-CMDs[#CMDs + 1] = {NAME = 'rainbowcar', DESC = 'Funny car'}
 CMDs[#CMDs + 1] = {NAME = 'nocliptool / nct', DESC = 'Noclip tool'}
 CMDs[#CMDs + 1] = {NAME = 'pickcars', DESC = 'Unlock cars within 35 studs.'}
 CMDs[#CMDs + 1] = {NAME = 'alarm', DESC = 'Alarm undriven cars within 35 studs'}
@@ -4433,7 +4425,6 @@ CMDs[#CMDs + 1] = {NAME = 'tweenwaypoint / twp [name]', DESC = 'Tweens player to
 CMDs[#CMDs + 1] = {NAME = 'deletewaypoint / dwp [name]', DESC = 'Deletes a waypoint'}
 CMDs[#CMDs + 1] = {NAME = 'clearwaypoints / cwp', DESC = 'Clears all waypoints'}
 CMDs[#CMDs + 1] = {NAME = 's250', DESC = 'Subtracts 250 cash'}
-CMDs[#CMDs + 1] = {NAME = '500k', DESC = 'Resets cash to 500k'}
 CMDs[#CMDs + 1] = {NAME = 'goto [plr]', DESC = 'Go to a player'}
 CMDs[#CMDs + 1] = {NAME = 'tweengoto / tgoto [plr]', DESC = 'Tween to a player (bypasses some anti cheats)'}
 CMDs[#CMDs + 1] = {NAME = 'tweenspeed / tspeed [num]', DESC = 'Sets how fast all tween commands go (default is 1)'}
@@ -4490,7 +4481,6 @@ CMDs[#CMDs + 1] = {NAME = 'spectate / view [plr]', DESC = 'View a player'}
 CMDs[#CMDs + 1] = {NAME = 'viewpart / viewp [part name]', DESC = 'View a part'}
 CMDs[#CMDs + 1] = {NAME = 'unspectate / unview', DESC = 'Stops viewing player'}
 CMDs[#CMDs + 1] = {NAME = 'anonymous', DESC = 'Makes your name near impossible to find (REVERTS WHEN DIED)'}
-CMDs[#CMDs + 1] = {NAME = 'sus / amogus / amongus [R] [G] [B]', DESC = 'Makes you amogus'}
 CMDs[#CMDs + 1] = {NAME = 'freecam / fc', DESC = 'Allows you to freely move camera around the game'}
 CMDs[#CMDs + 1] = {NAME = 'freecampos / fcpos [X Y Z]', DESC = 'Moves / opens freecam in a certain position'}
 CMDs[#CMDs + 1] = {NAME = 'freecamwaypoint / fcwp [name]', DESC = 'Moves / opens freecam to a waypoint'}
@@ -4713,7 +4703,6 @@ CMDs[#CMDs + 1] = {NAME = 'deleteselectedtool / dst', DESC = 'Removes any curren
 CMDs[#CMDs + 1] = {NAME = 'grabtools', DESC = 'Automatically get tools that are dropped'}
 CMDs[#CMDs + 1] = {NAME = 'ungrabtools / nograbtools', DESC = 'Disables grabtools'}
 CMDs[#CMDs + 1] = {NAME = 'copytools [plr] (CLIENT)', DESC = 'Copies a players tools'}
-CMDs[#CMDs + 1] = {NAME = 'dupetools / clonetools [num]', DESC = 'Duplicates your inventory tools a set ammount of times'}
 CMDs[#CMDs + 1] = {NAME = 'droptools', DESC = 'Drops your tools'}
 CMDs[#CMDs + 1] = {NAME = 'droppabletools', DESC = 'Makes your tools droppable'}
 CMDs[#CMDs + 1] = {NAME = 'equiptools', DESC = 'Equips every tool in your inventory at once'}
@@ -6851,14 +6840,6 @@ end)
 game:GetService("ReplicatedStorage")["_CS.Events"].PaintTool:FireServer(workspace, Color3.new(0, 0, 0))
 end)
 
-addcmd('500k',{},function(args, speaker)
-    for i,v in pairs(workspace.PlayerVehicles:GetChildren()) do
-        game:GetService("ReplicatedStorage")["_CS.Events"].FillUpCar:FireServer(v, 9e9)
-    end
-    wait(.2)
-    game:GetService("TeleportService"):Teleport(game.PlaceId)
-end)
-
 addcmd('notifyjobid',{},function(args, speaker)
 	notify('JobId / PlaceId',game.JobId..' / '..game.PlaceId)
 end)
@@ -8701,10 +8682,6 @@ addcmd('showprompts',{'showpurchaseprompts'},function(args, speaker)
 	COREGUI.PurchasePromptApp.PremiumPromptUI.Visible = false
 end)
 
-addcmd('innocent',{},function(args, speaker)
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("hide")
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("unhide")
-end)
 
 addcmd('age',{},function(args, speaker)
 	local players = getPlayer(args[1], speaker)
@@ -9634,25 +9611,6 @@ addcmd('anonymous',{},function(args, speaker)
     end)
 end)
 
-addcmd('sus',{'amogus','amongus'},function(args, speaker)
-    local origin = speaker.Character.HumanoidRootPart.CFrame
-    speaker.Character.HumanoidRootPart.CFrame = CFrame.new(2114.14697, -83.3234253, -1407.88184)
-    if tonumber(args[1]) and tonumber(args[2]) and tonumber(args[3]) then
-        game:GetService("ReplicatedStorage")["_CS.Events"].EquipAvatarItem:FireServer("Color",Color3.fromRGB(args[1],args[2],args[3]),"SkinColor")
-    else
-        game:GetService("ReplicatedStorage")["_CS.Events"].EquipAvatarItem:FireServer("Color",Color3.new(1,0,0),"SkinColor")
-    end
-    game:GetService("ReplicatedStorage")["_CS.Events"].EquipAvatarItem:FireServer("CustomCloth",6431115067)
-    game:GetService("ReplicatedStorage")["_CS.Events"].EquipAvatarItem:FireServer("CustomCloth",6164520667)
-    wait()
-    execCmd('split')
-    wait(.5)
-    speaker.Character.Head.Anchored = true
-    getRoot(speaker.Character).CFrame = origin
-    wait(.15)
-    notify(string.lower(tostring(speaker.Character.Head.BrickColor)).." is the impostor")
-end)
-
 addcmd('loopnobgui',{'loopunbgui','loopnobillboardgui','loopunbillboardgui','loopnoname','looprohg'},function(args, speaker)
 	for i,v in pairs(speaker.Character:GetDescendants())do
 		if v:IsA("BillboardGui") or v:IsA("SurfaceGui") then
@@ -10042,37 +10000,6 @@ addcmd('remotespy',{'rspy'},function(args, speaker)
 	loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
 end)
 
-addcmd('loopheal',{'god'},function(args, speaker)
-if god == true then 
-    god = false
-end
-god = true
-repeat wait()
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("heal")
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("heal")
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("heal")
-until god == false
-end)
-
-addcmd('unloopheal',{'ungod'},function(args, speaker)
-god = false
-end)
-
-addcmd('rainbowtool',{},function(args, speaker)
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("rainbowtool")
-end)
-
-addcmd('rainbowcar',{},function(args, speaker)
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("rainbowcar")
-end)
-
-addcmd('hide',{},function(args, speaker)
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("hide")
-end)
-
-addcmd('unhide',{},function(args, speaker)
-game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events").CMD:FireServer("unhide")
-end)
 
 addcmd('nocliptool',{'nct'},function(args, speaker)
 if game:GetService("ReplicatedStorage"):FindFirstChild("_CS.Events"):FindFirstChild('Validate') then
@@ -10778,59 +10705,7 @@ addcmd('equiptools',{},function(args, speaker)
 	end
 end)
 
-addcmd('dupetools',{'clonetools'},function(args, speaker)
-	local ME = speaker
-	local LOOP_NUM = args[1] or 1
-	local tools, pos, pos1 = {}, ME.Character.HumanoidRootPart.CFrame, CFrame.new(math.random(-2e5, 2e5), 2e5, math.random(-2e5, 2e5))
-	for _ = 1, tonumber(tonumber(LOOP_NUM) or 1) do
-		ME.Character.HumanoidRootPart.CFrame = pos1
-		wait(.2)
-		ME.Character.HumanoidRootPart.Anchored = true
-		wait(.2)
-		ME.Character.Humanoid:UnequipTools()
-		for _, v in pairs(ME:FindFirstChildOfClass("Backpack"):GetChildren()) do
-			if v:IsA("Tool") and v:FindFirstChild("Handle") then
-				v.Parent = ME.Character
-				v.Handle.Anchored = true
-				v.Parent = workspace
-				table.insert(tools, v)
-			end
-		end
-		ME.Character:FindFirstChildOfClass("Humanoid"):ChangeState(15)
-		ME.CharacterAdded:Wait():WaitForChild("HumanoidRootPart").CFrame = pos
-	end
-	if type(firetouchinterest) == "function" then
-		for _, v in pairs(tools) do
-			pcall(coroutine.wrap(function()
-				v.Handle.Anchored = false
-				firetouchinterest(v.Handle, ME.Character:WaitForChild("HumanoidRootPart"), 0)
-				repeat
-					wait()
-				until v.Parent == ME.Character
-				firetouchinterest(v.Handle, ME.Character.HumanoidRootPart, 1)
-			end))
-		end
-	else
-		ME.Character.HumanoidRootPart.Anchored = true
-		wait(.15)
-		for _, v in pairs(tools) do
-			spawn(function()
-				v.Handle.Anchored = false
-				while v.Parent ~= ME.Character and game:GetService("RunService").RenderStepped:Wait() do
-					v.Handle.CFrame = ME.Character:WaitForChild("HumanoidRootPart").CFrame
-				end
-			end)
-		end
-		wait((function(num)
-			local e = 0
-			for _ = 1, num do
-				e = e + .1
-			end
-			return e
-		end)(#tools))
-		ME.Character.HumanoidRootPart.Anchored = false
-	end
-end)
+
 
 addcmd('touchinterests', {'touchinterest', 'firetouchinterests', 'firetouchinterest'}, function(args, speaker)
 	local Root = getRoot(speaker.Character) or speaker.Character:FindFirstChildWhichIsA("BasePart")
