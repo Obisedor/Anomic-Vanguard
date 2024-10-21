@@ -1,3 +1,6 @@
+-- Script not made by Anomic Vanguard, this simply is just a UI library reuploaded where we removed the cursor icon changing. All credits to the original creator: https://github.com/violin-suzutsuki/LinoriaLib/tree/main
+
+
 local InputService = game:GetService('UserInputService');
 local TextService = game:GetService('TextService');
 local CoreGui = game:GetService('CoreGui');
