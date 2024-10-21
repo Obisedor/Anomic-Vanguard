@@ -1,7 +1,7 @@
 local PreviewThemeSettings = {
     Transparency = 0.60,
     ItemEsp = {
-        Enabled = true
+        Enabled = true,
         Color = Color3.fromRGB(255, 255, 255),
         IgnoreItems = {"Lockpick", "Plate"}
     }
@@ -20,7 +20,12 @@ local PreviewThemeSettings = {
     },
     CrateEsp = {
         Enabled = true,
-        IgnoreEmpty = true
+        IgnoreEmpty = true,
+        Color = Color3.fromRGB(255, 255, 255)
+    },
+    VehicleEsp = {
+        Enabled = true,
+        IgnoreWithDriver = true,
         Color = Color3.fromRGB(255, 255, 255)
     }
 }
