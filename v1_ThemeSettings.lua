@@ -26,6 +26,7 @@ local PreviewThemeSettings = {
     VehicleEsp = {
         Enabled = true,
         IgnoreWithDriver = true,
+        MarkPassengers = true,
         Color = Color3.fromRGB(255, 255, 255)
     }
 }
