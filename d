@@ -1,7 +1,7 @@
-local x
+local xx
 
 local D = {}
-function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
+function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, continueCallback)
     if Type == "FullScreen" then
         -- Instances:
 
@@ -129,8 +129,8 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
         end
 
         ContinueButton.MouseButton1Click:Connect(function()
-            if D and D.OnContinueButtonPressed then
-                D:OnContinueButtonPressed()
+            if continueCallback then
+                continueCallback()
             end
             AnomicVanguardRiskDisclaimer:Destroy()
             Blur:Destroy()
