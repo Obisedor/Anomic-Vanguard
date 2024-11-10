@@ -1,4 +1,5 @@
-
+local function CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
+    if Type == "FullScreen" then
         -- Instances:
 
         local AnomicVanguardRiskDisclaimer = Instance.new("ScreenGui")
@@ -134,3 +135,5 @@
 
             end)
         end
+    end
+end
