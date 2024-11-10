@@ -1,5 +1,5 @@
-local x
- 
+local xx
+
 local D = {}
 function D:CreateNotification(Information)
     warn(Information)
@@ -140,7 +140,7 @@ function D:CreateNotification(Information)
 
         ContinueButton.MouseButton1Click:Connect(function()
             if Info.ContinuePressed then
-                ContinuePressed()
+                Info.ContinuePressed()
             end
             AnomicVanguardRiskDisclaimer:Destroy()
             Blur:Destroy()
