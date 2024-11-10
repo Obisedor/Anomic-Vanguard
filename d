@@ -127,6 +127,9 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
         end
 
         ContinueButton.MouseButton1Click:Connect(function()
+            if D and D.OnContinueButtonPressed then
+                D:OnContinueButtonPressed()
+            end
             AnomicVanguardRiskDisclaimer:Destroy()
             Blur:Destroy()
         end)
