@@ -1,3 +1,5 @@
+local x
+
 local D = {}
 function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
     if Type == "FullScreen" then
