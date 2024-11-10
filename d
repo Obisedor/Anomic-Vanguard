@@ -2,7 +2,7 @@ local x
 
 local D = {}
 function D:CreateNotification(Information)
-
+    warn(Information)
     local Info = {
         Type = Information.Type,
         Title = Information.Title,
@@ -54,7 +54,7 @@ function D:CreateNotification(Information)
         Title.Position = UDim2.new(0.273700297, 0, 0.0276381914, 0)
         Title.Size = UDim2.new(0.451070338, 0, 0.125628144, 0)
         Title.Font = Enum.Font.Cartoon
-        Title.Text = Info.TitleText
+        Title.Text = Info.Title
         Title.TextColor3 = Color3.fromRGB(255, 0, 4)
         Title.TextScaled = true
         Title.TextSize = 14.000
