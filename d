@@ -1,8 +1,18 @@
-local xx
+local x
 
 local D = {}
-function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, continueCallback)
-    if Type == "FullScreen" then
+function D:CreateNotification(Information)
+
+    local Info = {
+        Type = Information.Type,
+        Title = Information.Title,
+        Description = Information.Description,
+        Countdown = Information.Countdown or nil,
+        DoNotShow = Information.DoNotShow or false,
+        ContinuePressed = Information.ContinuePressed
+    }
+
+    if Info.Type == "FullScreen" then
         -- Instances:
 
         local AnomicVanguardRiskDisclaimer = Instance.new("ScreenGui")
@@ -22,7 +32,7 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
 
         Blur.Parent = game.Lighting
 
-        AnomicVanguardRiskDisclaimer.Name = "AnomicVanguardRiskDisclaimer"
+        AnomicVanguardRiskDisclaimer.Name = "AnomicVanguardNotification"
         AnomicVanguardRiskDisclaimer.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
         AnomicVanguardRiskDisclaimer.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -44,7 +54,7 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
         Title.Position = UDim2.new(0.273700297, 0, 0.0276381914, 0)
         Title.Size = UDim2.new(0.451070338, 0, 0.125628144, 0)
         Title.Font = Enum.Font.Cartoon
-        Title.Text = TitleText
+        Title.Text = Info.TitleText
         Title.TextColor3 = Color3.fromRGB(255, 0, 4)
         Title.TextScaled = true
         Title.TextSize = 14.000
@@ -65,7 +75,7 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
         RiskDescription.Position = UDim2.new(0.0214067269, 0, 0.17336683, 0)
         RiskDescription.Size = UDim2.new(0.95718652, 0, 0.693467319, 0)
         RiskDescription.Font = Enum.Font.Cartoon
-        RiskDescription.Text = Text
+        RiskDescription.Text = Info.Description
         RiskDescription.TextColor3 = Color3.fromRGB(0, 234, 255)
         RiskDescription.TextScaled = true
         RiskDescription.TextSize = 14.000
@@ -83,7 +93,7 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
         ContinueButton.BorderSizePixel = 0
         ContinueButton.Position = UDim2.new(0.5, 0, 0.932160795, 0)
         ContinueButton.Size = UDim2.new(0.215596333, 0, 0.0904522613, 0)
-        ContinueButton.Text = "Continue (10s)"
+        ContinueButton.Text = "Continue (Xs)"
         ContinueButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         ContinueButton.TextScaled = true
         ContinueButton.TextWrapped = true
@@ -91,7 +101,7 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
         UICorner_4.CornerRadius = UDim.new(0.200000003, 0)
         UICorner_4.Parent = ContinueButton
 
-        if DontShowAgain then
+        if Info.DontShowAgain then
             DontShowAgainButton.Name = "DontShowAgainButton"
             DontShowAgainButton.Parent = RiskWarningHolder
             DontShowAgainButton.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -112,8 +122,8 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
 
         -- Scripts:
 
-        if Cooldown then
-            local SecondsLeft = Cooldown
+        if Info.Cooldown then
+            local SecondsLeft = Info.Cooldown
                 
             repeat
                 SecondsLeft -= 1
@@ -129,8 +139,8 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain, co
         end
 
         ContinueButton.MouseButton1Click:Connect(function()
-            if continueCallback then
-                continueCallback()
+            if Info.ContinuePressed then
+                ContinuePressed()
             end
             AnomicVanguardRiskDisclaimer:Destroy()
             Blur:Destroy()
