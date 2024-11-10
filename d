@@ -1,4 +1,5 @@
-local function CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
+local D = {}
+function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
     if Type == "FullScreen" then
         -- Instances:
 
