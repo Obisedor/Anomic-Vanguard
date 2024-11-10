@@ -138,3 +138,5 @@ function D:CreateNotification(Type, TitleText, Text, Cooldown, DontShowAgain)
         end
     end
 end
+
+return D
