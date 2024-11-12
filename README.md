@@ -1,1 +1,1 @@
-Certain scripts in the v1_Scripts directory won't work since they are made to be requested thru the v1 panel, or either are just unfinished or old scripts for v1 that have been stored there
+Certain scripts in the v1_Scripts and OptionalDepencies directory won't work since they are made to be requested thru another script, or either are just unfinished or old scripts for v1 that have been stored there
