@@ -461,6 +461,10 @@ SubmitAnswersButton.TextWrapped = true
 UICorner_15.CornerRadius = UDim.new(0.200000003, 0)
 UICorner_15.Parent = SubmitAnswersButton
 
+-- TEMP
+-- TEMP
+-- TEMP
+-- TEMP
 TextButton.Parent = Main
 TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.BackgroundTransparency = 0.500
@@ -479,6 +483,8 @@ UICorner_16.CornerRadius = UDim.new(0.200000003, 0)
 UICorner_16.Parent = TextButton
 
 -- Scripts:
+
+-- TEMP
 
 local function ZPLPH_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
