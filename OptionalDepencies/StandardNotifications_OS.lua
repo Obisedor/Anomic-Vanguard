@@ -1,4 +1,4 @@
--- Script not done, but half works d
+-- Script not done, but half works dd
 
 local player = game.Players.LocalPlayer
 
@@ -32,6 +32,7 @@ local Module = {}
 
         if Type == "Standard" then
             Clone = StandardClone
+            warn(Clone.Name .. " standardclone name")
             warn("set clone to standardclone")
         end
         if Type == "Up" or Type == "Mayor" or Type == "Top" then
@@ -43,29 +44,29 @@ local Module = {}
             Clone.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         end
 
-            if Clone then
+        if Clone then
 
-                if Type == "Standard" then
-                    Clone.Parent = player.PlayerGui:WaitForChild("MainMenu").Messages
-                    warn("standard")
-                else
-                    warn("not standard!")
-                end
-                if Type == "Up" or Type == "Mayor" or Type == "Top" then
-                    Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
-                end
+            if Type == "Standard" then
+                Clone.Parent = player.PlayerGui:WaitForChild("MainMenu").Messages
+                warn("standard")
+            else
+                warn("not standard!")
+            end
+            if Type == "Up" or Type == "Mayor" or Type == "Top" then
+                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
+            end
 
-                if Addition == "Error" then
-                    Clone.TextLabel.Text = AV .. " error | " .. Text .. " Please report this error."
-                end
-                if Addition == nil or Addition == "Standard" then
-                    Clone.TextLabel.Text = AV .. Text
-                    warn("addition is nil")
-                end
+            if Addition == "Error" then
+                Clone.TextLabel.Text = AV .. " error | " .. Text .. " Please report this error."
+            end
+            if Addition == nil or Addition == "Standard" then
+                Clone.TextLabel.Text = AV .. Text
+                warn("addition is nil")
+            end
 
-                Clone.LocalScript.Disabled = false
-                warn("disabled script")
-                NotificationSound:Play()
+            Clone.LocalScript.Disabled = false
+            warn("disabled script")
+            NotificationSound:Play()
             end
         end
 
