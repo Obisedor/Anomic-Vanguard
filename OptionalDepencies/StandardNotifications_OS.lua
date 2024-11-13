@@ -22,8 +22,6 @@ local Module = {}
         local StandardClone = game:GetService("ReplicatedStorage"):WaitForChild("UserInterface").Card:Clone()
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
-        local Clone = nil
-
         local AV
         if ShowAV then
             AV = "AV | " 
@@ -61,7 +59,7 @@ local Module = {}
                 NotificationSound:Play()
             end
         end
-    end
+
 
 
 return Module
