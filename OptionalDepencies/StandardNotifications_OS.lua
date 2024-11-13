@@ -16,13 +16,13 @@ local Module = {}
         NotificationSound.Name = "AnomicVanguard_NotificationSound"
     end	
 
-    function Module:Notify(Type, Text, Addition, ShowAV)
+    function Module:Notify(Type, Text, Addition, Incognito)
         local Clone
         local StandardClone = game:GetService("ReplicatedStorage"):WaitForChild("UserInterface").Card:Clone()
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
         local AV
-        if ShowAV == nil or ShowAV then
+        if Incognito == nil or Incognito then
             AV = "AV | " 
         else
             AV = ""
@@ -54,11 +54,12 @@ local Module = {}
             end
             if Addition == nil or Addition == "Standard" then
                 Clone.TextLabel.Text = AV .. Text
-                warn("addition is nil")
             end
 
             Clone.LocalScript.Disabled = false
-            NotificationSound:Play()
+                if Incognito then
+                    NotificationSound:Play()
+                end
             end
         end
 
