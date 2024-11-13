@@ -3,9 +3,9 @@
 
 -- Instances:
 
-local Module = {}
+local ddd = {}
 
-function Module:CreateSurvey(Information)
+function ddd:CreateSurvey(Information)
 
     local ActiveAnswers = {}
 
@@ -520,4 +520,4 @@ end
 
 
 
-return Module
+return ddd
