@@ -1,4 +1,4 @@
--- Script not done, but half works ddd
+-- Script not done, but half works d
 
 
 local Module = {}
@@ -19,11 +19,10 @@ local Module = {}
     function Module:Notify(Type, Text, Addition, ShowAV)
         local Clone
         local StandardClone = game:GetService("ReplicatedStorage"):WaitForChild("UserInterface").Card:Clone()
-        warn(StandardClone)
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
         local AV
-        if ShowAV then
+        if ShowAV == nil or ShowAV then
             AV = "AV | " 
         else
             AV = ""
@@ -31,8 +30,6 @@ local Module = {}
 
         if Type == "Standard" then
             Clone = StandardClone
-            warn(Clone.Name .. " standardclone name")
-            warn("set clone to standardclone")
         end
         if Type == "Up" or Type == "Mayor" or Type == "Top" then
             Clone = MayorClone
@@ -47,9 +44,6 @@ local Module = {}
 
             if Type == "Standard" then
                 Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
-                warn("standard")
-            else
-                warn("not standard!")
             end
             if Type == "Up" or Type == "Mayor" or Type == "Top" then
                 Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
@@ -63,8 +57,7 @@ local Module = {}
                 warn("addition is nil")
             end
 
-            warn("disabled script")
-            print(Clone.Parent)
+            Clone.LocalScript.Disabled = false
             NotificationSound:Play()
             end
         end
