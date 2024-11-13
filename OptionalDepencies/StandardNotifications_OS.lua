@@ -1,5 +1,7 @@
 -- Script not done, but half works
 
+local player = game.Players.LocalPlayer
+
 local Module = {}
 
 
@@ -10,7 +12,7 @@ local Module = {}
         NotificationSound = game:GetService("CoreGui").AnomicVanguard_NotificationSound
     else
         NotificationSound = Instance.new("Sound")
-        NotificationSound.SoundId = 18886652611
+        NotificationSound.SoundId = "rbxassetid://18886652611"
         NotificationSound.Parent = game:GetService("CoreGui")
         NotificationSound.Name = "AnomicVanguard_NotificationSound"
     end	
@@ -24,7 +26,7 @@ local Module = {}
 
         local AV
         if ShowAV then
-        AV = "AV | " 
+            AV = "AV | " 
         end
 
         if Type == "Standard" then
