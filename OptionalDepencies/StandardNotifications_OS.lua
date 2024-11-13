@@ -15,7 +15,7 @@ local Module = {}
         NotificationSound.Name = "AnomicVanguard_NotificationSound"
     end	
 
-    local function Notify(Type, Text, Addition, ShowAV)
+    function Module:Notify(Type, Text, Addition, ShowAV)
         local Clone
         local StandardClone = game:GetService("ReplicatedStorage"):WaitForChild("UserInterface").Card:Clone()
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
