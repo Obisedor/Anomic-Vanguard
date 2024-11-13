@@ -1,5 +1,7 @@
 -- Script not done, but half works
 
+local d
+
 local player = game.Players.LocalPlayer
 
 local Module = {}
@@ -25,6 +27,8 @@ local Module = {}
         local AV
         if ShowAV then
             AV = "AV | " 
+        else
+            AV = ""
         end
 
         if Type == "Standard" then
