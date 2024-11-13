@@ -1,5 +1,5 @@
--- Script not done, but half works
-local dd
+ -- Script not done, but half works d
+
 local player = game.Players.LocalPlayer
 
 local Module = {}
@@ -45,6 +45,8 @@ local Module = {}
 
                 if Type == "Standard" then
                     Clone.Parent = player.PlayerGui:WaitForChild("MainMenu").Messages
+                else
+                    warn("not standard!")
                 end
                 if Type == "Up" or Type == "Mayor" or Type == "Top" then
                     Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
