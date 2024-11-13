@@ -7,29 +7,6 @@ local Module = {}
 
 function Module:CreateSurvey(Information)
 
-    for i, v in pairs(Information) do
-        print(i, v)
-        if i == "GeneralSettings" then
-            for ii, vv in pairs(v) do
-                warn(vv)
-            end
-        else
-            if v.Type == "BoolAnswer" then
-                CreateBoolAnswer(i)
-            end
-            if v.Type == "InputboxAnswer" then
-                CreateInputAnswer(i)
-            end
-            if v.Type == "SelectAnswer" then
-                local Answers = {}
-                for ii, vv in pairs(v.Answers) do
-                    table.insert(Answers, vv)
-                end
-                CreateSelectionAnswer(i, Answers, v.MaxAnswers)
-            end
-        end
-    end
-
     local ActiveAnswers = {}
 
 
@@ -467,8 +444,6 @@ function Module:CreateSurvey(Information)
 
     end
 
-    local Answers = {"Railing", "Digitaling", "Eeeking", "Teching"}
-    CreateSelectionAnswer("3. What genre is the movie?", Answers, 2)
 
     SubmitAnswersButton.Name = "SubmitAnswersButton"
     SubmitAnswersButton.Parent = Main
@@ -521,6 +496,25 @@ function Module:CreateSurvey(Information)
         end)
     end
     coroutine.wrap(ZPLPH_fake_script)()
+
+    for i, v in pairs(Information) do
+        print(i, v)
+        if i == "GeneralSettings" then
+            for ii, vv in pairs(v) do
+                warn(vv)
+            end
+        else
+            if v.Type == "BoolAnswer" then
+                CreateBoolAnswer(i)
+            end
+            if v.Type == "InputboxAnswer" then
+                CreateInputAnswer(i)
+            end
+            if v.Type == "SelectAnswer" then
+                CreateSelectionAnswer(i, v.Answers, v.MaxAnswers)
+            end
+        end
+    end
 
 end
 
