@@ -1,10 +1,9 @@
 -- Script not done, but half works
 
-local player = game.Players.LocalPlayer
 
 local Module = {}
 
-
+    local player = game.Players.LocalPlayer
 
     local NotificationSound
 
@@ -12,7 +11,6 @@ local Module = {}
         NotificationSound = game:GetService("CoreGui").AnomicVanguard_NotificationSound
     else
         NotificationSound = Instance.new("Sound")
-        NotificationSound.SoundId = "rbxassetid://18886652611"
         NotificationSound.SoundId = "rbxassetid://17208361335"
         NotificationSound.Parent = game:GetService("CoreGui")
         NotificationSound.Name = "AnomicVanguard_NotificationSound"
@@ -21,6 +19,7 @@ local Module = {}
     function Module:Notify(Type, Text, Addition, ShowAV)
         local Clone
         local StandardClone = game:GetService("ReplicatedStorage"):WaitForChild("UserInterface").Card:Clone()
+        warn(StandardClone)
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
         local AV
@@ -32,6 +31,8 @@ local Module = {}
 
         if Type == "Standard" then
             Clone = StandardClone
+            warn(Clone.Name .. " standardclone name")
+            warn("set clone to standardclone")
         end
         if Type == "Up" or Type == "Mayor" or Type == "Top" then
             Clone = MayorClone
@@ -42,24 +43,29 @@ local Module = {}
             Clone.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         end
 
-            if Clone then
+        if Clone then
 
-                if Type == "Standard" then
-                    Clone.Parent = player.PlayerGui:WaitForChild("MainMenu").Messages
-                end
-                if Type == "Up" or Type == "Mayor" or Type == "Top" then
-                    Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
-                end
+            if Type == "Standard" then
+                Clone.Parent = player.PlayerGui:WaitForChild("MainMenu").Messages
+                warn("standard")
+            else
+                warn("not standard!")
+            end
+            if Type == "Up" or Type == "Mayor" or Type == "Top" then
+                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
+            end
 
-                if Addition == "Error" then
-                    Clone.TextLabel.Text = AV .. " error | " .. Text .. " Please report this error."
-                end
-                if Addition == nil or Addition == "Standard" then
-                    Clone.TextLabel.Text = AV .. Text
-                end
+            if Addition == "Error" then
+                Clone.TextLabel.Text = AV .. " error | " .. Text .. " Please report this error."
+            end
+            if Addition == nil or Addition == "Standard" then
+                Clone.TextLabel.Text = AV .. Text
+                warn("addition is nil")
+            end
 
-                Clone.LocalScript.Disabled = false
-                NotificationSound:Play()
+            warn("disabled script")
+            print(Clone.Parent)
+            NotificationSound:Play()
             end
         end
 
