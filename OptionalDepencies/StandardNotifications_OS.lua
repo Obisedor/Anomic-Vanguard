@@ -1,4 +1,4 @@
--- Script not done, but half works
+-- Script not done, but half works d
 
 
 local Module = {}
@@ -46,7 +46,7 @@ local Module = {}
         if Clone then
 
             if Type == "Standard" then
-                Clone.Parent = player.PlayerGui:WaitForChild("MainMenu").Messages
+                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
                 warn("standard")
             else
                 warn("not standard!")
