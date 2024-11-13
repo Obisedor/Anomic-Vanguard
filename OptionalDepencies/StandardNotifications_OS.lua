@@ -1,5 +1,7 @@
 -- Script not done, but half works
 
+local d
+
 local player = game.Players.LocalPlayer
 
 local Module = {}
