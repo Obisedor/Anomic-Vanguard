@@ -1,7 +1,17 @@
+-- Script not done, but half works
+
+local player = game.Players.LocalPlayer
+
+local Module = {}
+
+
+
+    local NotificationSound
+
+    if game:GetService("CoreGui"):FindFirstChild("AnomicVanguard_NotificationSound") then
         NotificationSound = game:GetService("CoreGui").AnomicVanguard_NotificationSound
     else
         NotificationSound = Instance.new("Sound")
-        NotificationSound.SoundId = "rbxassetid://18886652611"
         NotificationSound.SoundId = "rbxassetid://17208361335"
         NotificationSound.Parent = game:GetService("CoreGui")
         NotificationSound.Name = "AnomicVanguard_NotificationSound"
