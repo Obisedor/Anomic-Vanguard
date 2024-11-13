@@ -1,4 +1,4 @@
--- Script not done, but half works
+-- Script not done, but half works d
 
 local player = game.Players.LocalPlayer
 
