@@ -1,4 +1,4 @@
--- Script not done, but half workds dddddd
+-- Script not done, but half works d
 
 local player = game.Players.LocalPlayer
 
@@ -64,7 +64,6 @@ local Module = {}
                 warn("addition is nil")
             end
 
-            Clone.LocalScript.Disabled = false
             warn("disabled script")
             print(Clone.Parent)
             NotificationSound:Play()
