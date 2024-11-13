@@ -32,7 +32,7 @@ local Module = {}
 
         if Type == "Standard" then
             Clone = StandardClone
-            warn(clone .. " 2")
+            warn("set clone to standardclone")
         end
         if Type == "Up" or Type == "Mayor" or Type == "Top" then
             Clone = MayorClone
