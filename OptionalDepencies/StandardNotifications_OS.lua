@@ -6,7 +6,6 @@ local Module = {}
     local player = game.Players.LocalPlayer
 
     local NotificationSound
-
     if game:GetService("CoreGui"):FindFirstChild("AnomicVanguard_NotificationSound") then
         NotificationSound = game:GetService("CoreGui").AnomicVanguard_NotificationSound
     else
