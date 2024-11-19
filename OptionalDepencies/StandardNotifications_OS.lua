@@ -1,10 +1,11 @@
--- Script not done, but half works d
+-- Script not done, but half works
 
 
 local Module = {}
 
     local player = game.Players.LocalPlayer
 
+    -- Create the notification sound, or assign it if it already is existing
     local NotificationSound
     if game:GetService("CoreGui"):FindFirstChild("AnomicVanguard_NotificationSound") then
         NotificationSound = game:GetService("CoreGui").AnomicVanguard_NotificationSound
@@ -16,10 +17,12 @@ local Module = {}
     end	
 
     function Module:Notify(Type, Text, Addition, Incognito)
-        local Clone
+    
         local StandardClone = game:GetService("ReplicatedStorage"):WaitForChild("UserInterface").Card:Clone()
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
+
+        -- Adjust the text according to the Incognito argument
         local AV
         if Incognito then
             AV = "" 
@@ -27,6 +30,8 @@ local Module = {}
             AV = "AV | "
         end
 
+        -- Set the clone variable to the actual clone
+        local Clone
         if Type == "Standard" then
             Clone = StandardClone
         end
@@ -34,20 +39,24 @@ local Module = {}
             Clone = MayorClone
         end
 
+        -- Handle the addition arguments
         if Addition == "Error" and Type == "Standard" then
             Clone.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
             Clone.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         end
 
+    
         if Clone then
 
+            -- Parent the notification
             if Type == "Standard" then
                 Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
             end
             if Type == "Up" or Type == "Mayor" or Type == "Top" then
-                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages -- ADJUST
+                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages -- ADJUST PATH
             end
 
+            -- Put the text on the notification
             if Addition == "Error" then
                 Clone.TextLabel.Text = AV .. " Error | " .. Text .. " Please report this error."
             end
@@ -55,11 +64,14 @@ local Module = {}
                 Clone.TextLabel.Text = AV .. Text
             end
 
-            Clone.LocalScript.Disabled = false
+            -- Disable local script to make the notification dissapear after
+            Clone.LocalScript.Disabled = false -- DOUBLE CHECK
                 if Incognito == nil then
                     NotificationSound:Play()
                 end
             end
+        else -- Warn if clone somehow is nil
+            warn("AV Notifications module | No clone found!")
         end
 
 
