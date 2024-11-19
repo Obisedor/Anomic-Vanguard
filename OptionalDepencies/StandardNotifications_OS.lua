@@ -22,10 +22,10 @@ local Module = {}
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
         local AV
-        if Incognito == nil or Incognito then
-            AV = "AV | " 
+        if Incognito then
+            AV = "" 
         else
-            AV = ""
+            AV = "AV | "
         end
 
         if Type == "Standard" then
@@ -46,18 +46,18 @@ local Module = {}
                 Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
             end
             if Type == "Up" or Type == "Mayor" or Type == "Top" then
-                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
+                Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages -- ADJUST
             end
 
             if Addition == "Error" then
-                Clone.TextLabel.Text = AV .. " error | " .. Text .. " Please report this error."
+                Clone.TextLabel.Text = AV .. " Error | " .. Text .. " Please report this error."
             end
             if Addition == nil or Addition == "Standard" then
                 Clone.TextLabel.Text = AV .. Text
             end
 
             Clone.LocalScript.Disabled = false
-                if Incognito then
+                if Incognito == nil then
                     NotificationSound:Play()
                 end
             end
