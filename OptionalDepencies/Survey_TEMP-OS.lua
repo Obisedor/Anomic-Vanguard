@@ -3,6 +3,16 @@
 
 -- Instances:
 
+--[[
+local Example = {
+    ["GeneralSettings"] = {},
+    ["1. Example question"] = {
+        ["Type"] = "Bool, InputboxAnswer or SelectAnswer",
+        ["MaxAnswers"] = number, if Type == SelectAnswer
+        
+}
+--]]
+
 local ddd = {}
 
 function ddd:CreateSurvey(Information)
@@ -497,6 +507,7 @@ function ddd:CreateSurvey(Information)
     end
     coroutine.wrap(ZPLPH_fake_script)()
 
+    -- Convert the information table to functions
     for i, v in pairs(Information) do
         print(i, v)
         if i == "GeneralSettings" then
