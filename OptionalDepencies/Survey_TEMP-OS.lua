@@ -5,7 +5,10 @@
 
 --[[
 local Example = {
-    ["GeneralSettings"] = {},
+    ["GeneralSettings"] = {
+        ["Title"] = "Example title",
+        ["Description"] = "Example description"
+    },
     ["1. Example question"] = { -- Index will be used as the question
         ["Type"] = -- "Bool, InputboxAnswer or SelectAnswer", 
         ["MaxAnswers"] = -- number, only add if Type == SelectAnswer
@@ -13,9 +16,9 @@ local Example = {
 }
 --]]
 
-local ddd = {}
+local Module = {}
 
-function ddd:CreateSurvey(Information)
+function Module:CreateSurvey(Information)
 
     local ActiveAnswers = {}
 
@@ -66,7 +69,7 @@ function ddd:CreateSurvey(Information)
     Title.Position = UDim2.new(0.15865384, 0, 0.0088888891, 0)
     Title.Size = UDim2.new(0.682692289, 0, 0.0844444409, 0)
     Title.Font = Enum.Font.Unknown
-    Title.Text = "Anomic Vanguard | v1 improement survey"
+    Title.Text = Information.GeneralSettings.Title
     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
     Title.TextScaled = true
     Title.TextSize = 14.000
@@ -84,7 +87,7 @@ function ddd:CreateSurvey(Information)
     InformationDescription.Position = UDim2.new(0.0352564119, 0, 0.102222219, 0)
     InformationDescription.Size = UDim2.new(0.929487169, 0, 0.0977777764, 0)
     InformationDescription.Font = Enum.Font.Roboto
-    InformationDescription.Text = "You have been randomly selected for a short survey. Filling in this survey will help us to improve the quality of our scripts. Your feedback will help us to adress issues you are facing with our scipts, and improve them. Thank you for your time!"
+    InformationDescription.Text = Information.GeneralSettings.Description
     InformationDescription.TextColor3 = Color3.fromRGB(255, 0, 4)
     InformationDescription.TextScaled = true
     InformationDescription.TextSize = 14.000
@@ -531,4 +534,4 @@ end
 
 
 
-return ddd
+return Module
