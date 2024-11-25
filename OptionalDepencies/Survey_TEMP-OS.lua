@@ -458,6 +458,9 @@ function Module:CreateSurvey(Information)
     end
 
 
+    
+    CreateSelectionAnswer("Question", AnswersTable, 2)
+    
     SubmitAnswersButton.Name = "SubmitAnswersButton"
     SubmitAnswersButton.Parent = Main
     SubmitAnswersButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
