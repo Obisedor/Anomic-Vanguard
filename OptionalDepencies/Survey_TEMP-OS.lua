@@ -8,7 +8,7 @@ local Example = {
     ["GeneralSettings"] = {},
     ["1. Example question"] = {
         ["Type"] = "Bool, InputboxAnswer or SelectAnswer",
-        ["MaxAnswers"] = number, if Type == SelectAnswer
+        ["MaxAnswers"] = number, only add if Type == "SelectAnswer
         
 }
 --]]
