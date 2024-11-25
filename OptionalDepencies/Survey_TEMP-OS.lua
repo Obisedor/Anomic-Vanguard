@@ -383,12 +383,6 @@ function Module:CreateSurvey(Information)
         UIListLayout_2.HorizontalFlex = Enum.UIFlexAlignment.Fill
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout_2.Padding = UDim.new(0.00999999978, 0)
-        
-        local Table = {
-            ["Answer"] = {}
-        }
-
-        ActiveAnswers[Question] = Table
 
         local PressedButtons = {}
 
@@ -414,6 +408,12 @@ function Module:CreateSurvey(Information)
             UICorner_12.CornerRadius = UDim.new(0.25, 0)
             UICorner_12.Parent = AnswerPreview
 
+            local Table = {
+                ["Answer"] = nil
+            }
+
+        ActiveAnswers[Question] = Table
+            
             AnswerPreview.MouseButton1Click:Connect(function()
                 local buttonAlreadyPressed = false
                 
@@ -427,6 +427,7 @@ function Module:CreateSurvey(Information)
                 if not buttonAlreadyPressed then
                     if #PressedButtons < MaxAnswers then
                         table.insert(PressedButtons, Text)
+                        table.insert(ActiveAnswers[Question], Text)
                         AnswerPreview.TextColor3 = Color3.fromRGB(0, 255, 0)
                     else
                         warn("AV survey | Max. options selected! Question:" .. Question)
@@ -435,6 +436,7 @@ function Module:CreateSurvey(Information)
                     for i, v in ipairs(PressedButtons) do
                         if v == Text then
                             table.remove(PressedButtons, i)
+                            table.remove(ActiveAnswers[Question], i)
                             AnswerPreview.TextColor3 = Color3.fromRGB(255, 255, 255)
                             break
                         end
@@ -450,7 +452,7 @@ function Module:CreateSurvey(Information)
             warn(i, v)
             CreateAnswerButton(v)
         end
-
+        
     end
 
 
