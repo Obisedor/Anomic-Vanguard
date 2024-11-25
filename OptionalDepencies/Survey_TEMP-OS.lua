@@ -12,8 +12,7 @@ local Example = {
     ["1. Example question"] = { -- Index will be used as the question
         ["Type"] = -- "Bool, InputboxAnswer or SelectAnswer", 
         ["MaxAnswers"] = -- number, only add if Type == SelectAnswer
-        
-}
+    }
 --]]
 
 local Module = {}
@@ -21,7 +20,6 @@ local Module = {}
 function Module:CreateSurvey(Information)
 
     local ActiveAnswers = {}
-
 
     local AnomicVanguardSurvey = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
@@ -34,8 +32,6 @@ function Module:CreateSurvey(Information)
     local UICorner_4 = Instance.new("UICorner")
     local QuestionsHolder_2 = Instance.new("ScrollingFrame")
     local UIListLayout = Instance.new("UIListLayout")
-
-
 
     local SubmitAnswersButton = Instance.new("TextButton")
     local UICorner_15 = Instance.new("UICorner")
