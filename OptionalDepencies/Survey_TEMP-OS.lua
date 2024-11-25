@@ -6,9 +6,9 @@
 --[[
 local Example = {
     ["GeneralSettings"] = {},
-    ["1. Example question"] = {
-        ["Type"] = "Bool, InputboxAnswer or SelectAnswer",
-        ["MaxAnswers"] = number, only add if Type == "SelectAnswer
+    ["1. Example question"] = { -- Index will be used as the question
+        ["Type"] = -- "Bool, InputboxAnswer or SelectAnswer", 
+        ["MaxAnswers"] = -- number, only add if Type == SelectAnswer
         
 }
 --]]
