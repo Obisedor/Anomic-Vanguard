@@ -24,8 +24,8 @@ local Module = {}
 
         -- Adjust the text according to the Incognito argument
         local AV
-        if Incognito then
-            AV = "" 
+        if Incognito then    
+            AV = ""
         else
             AV = "AV | "
         end
