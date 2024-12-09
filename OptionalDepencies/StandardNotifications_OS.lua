@@ -45,9 +45,7 @@ local Module = {}
             Clone.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
         end
 
-    
         if Clone then
-
             -- Parent the notification
             if Type == "Standard" then
                 Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages
@@ -55,7 +53,7 @@ local Module = {}
             if Type == "Up" or Type == "Mayor" or Type == "Top" then
                 Clone.Parent = player.PlayerGui:WaitForChild("MainUIHolder").Messages -- ADJUST PATH
             end
-
+        
             -- Put the text on the notification
             if Addition == "Error" then
                 Clone.TextLabel.Text = AV .. " Error | " .. Text .. " Please report this error."
@@ -63,16 +61,19 @@ local Module = {}
             if Addition == nil or Addition == "Standard" then
                 Clone.TextLabel.Text = AV .. Text
             end
-
-            -- Disable local script to make the notification dissapear after
+        
+            -- Disable local script to make the notification disappear after
             Clone.LocalScript.Disabled = false -- DOUBLE CHECK
-                if Incognito == nil then
-                    NotificationSound:Play()
-                end
+            
+            -- Play sound if not incognito
+            if Incognito == nil then
+                NotificationSound:Play()
             end
-        else -- Warn if clone somehow is nil
-            warn("AV Notifications module | No clone found!")
+        else
+            warn("AV Notification module | No clone found!")
         end
+        
+    end
 
 
 
