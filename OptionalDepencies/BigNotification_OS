@@ -1,14 +1,7 @@
 local D = {}
 function D:CreateNotification(Information)
     warn(Information)
-    local Info = {
-        Type = Information.Type,
-        Title = Information.Title,
-        Description = Information.Description,
-        Countdown = Information.Countdown or nil,
-        DoNotShow = Information.DoNotShow or false,
-        ContinuePressed = Information.ContinuePressed
-    }
+    local Info = Information
 
     if Info.Type == "FullScreen" then
         -- Instances:
