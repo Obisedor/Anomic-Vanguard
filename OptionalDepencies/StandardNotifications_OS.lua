@@ -21,7 +21,7 @@ local Module = {}
         local MayorClone = game:GetService("ReplicatedStorage") -- ADJUST PATH
 
 
-        if Text == "Standard" or not Text then
+        if Text == "Standard" or if not Text then
             local Text1 = Text
             local Text2 = Type
             Type = Text1
