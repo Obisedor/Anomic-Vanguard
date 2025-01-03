@@ -36,12 +36,7 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     InfoText.Position = UDim2.new(0.235872239, 0, 0.270100504, 0)
     InfoText.Size = UDim2.new(0.528255522, 0, 0.282663316, 0)
     InfoText.Font = Enum.Font.SourceSans
-    InfoText.Text = string.format(
-        "Anomic Vanguard | You are using the wrong loadstring for %s! Please, use the new loadstring to continue.\n\nAttempted script: %s\nNew loadstring: %s",
-        Information["ScriptName"],
-        Information["ScriptName"],
-        Information["NewLoadstring"]
-    )    
+    InfoText.Text = "Anomic Vanguard | You are using the wrong loadstring for ! Please, use the new loadstring to continue. Attempted script: - New loadstring:"  
     InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
     InfoText.TextScaled = true
     InfoText.TextSize = 14.000
