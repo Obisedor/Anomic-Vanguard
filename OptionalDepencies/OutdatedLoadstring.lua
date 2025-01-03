@@ -1,12 +1,5 @@
 local Module = {}
 
---[[ local Information = {
-    ["ScriptName"] = "",
-    ["NewLoadstring"] = "",
-    ["NewLoadstringLink"] = ""
-} ]]--
-
-
 function Module.CreateOutdatedLoadstringNotification(Information)
 
     local AnomicVanguard_OutdatedLoadstring = Instance.new("ScreenGui")
@@ -18,6 +11,9 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     local UICorner_3 = Instance.new("UICorner")
     local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
     local Blur = Instance.new("BlurEffect")
+    local UIStroke = Instance.new("UIStroke")
+    local UIStroke_2 = Instance.new("UIStroke")
+    local UIStroke_3 = Instance.new("UIStroke")
 
     --Properties:
 
@@ -34,8 +30,12 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     InfoText.Position = UDim2.new(0.235872239, 0, 0.270100504, 0)
     InfoText.Size = UDim2.new(0.528255522, 0, 0.282663316, 0)
     InfoText.Font = Enum.Font.SourceSans
-    InfoText.Text = "Anomic Vanguard | You are using the wrong loadstring of " .. Information.ScriptName .. "! Please, use the new loadstring to continue using this script. Attempted script: " .. Information.ScriptName .. " New loadstring: " .. Information.NewLoadstring
-    InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
+    InfoText.Text = string.format(
+        "Anomic Vanguard | You are using the wrong loadstring for %s! Please, use the new loadstring to continue.\n\nAttempted script: %s\nNew loadstring: %s",
+        Information.ScriptName,
+        Information.ScriptName,
+        Information.NewLoadstring
+    )    InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
     InfoText.TextScaled = true
     InfoText.TextSize = 14.000
     InfoText.TextWrapped = true
