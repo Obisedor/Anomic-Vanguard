@@ -1,5 +1,11 @@
 local Module = {}
 
+Information = {
+    ["ScriptName"] = "ezfq",
+    ["NewLoadstring"] = "zef",
+    ["NewLoadstringLink"] = "https://raw.githubusercontent.com/Obisedor/Anomic-Vanguard/refs/heads/main/AdminJoinNotifications"
+}
+
 function Module.CreateOutdatedLoadstringNotification(Information)
 
     local AnomicVanguard_OutdatedLoadstring = Instance.new("ScreenGui")
@@ -32,10 +38,11 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     InfoText.Font = Enum.Font.SourceSans
     InfoText.Text = string.format(
         "Anomic Vanguard | You are using the wrong loadstring for %s! Please, use the new loadstring to continue.\n\nAttempted script: %s\nNew loadstring: %s",
-        Information.ScriptName,
-        Information.ScriptName,
-        Information.NewLoadstring
-    )    InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
+        Information["ScriptName"],
+        Information["ScriptName"],
+        Information["NewLoadstring"]
+    )    
+    InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
     InfoText.TextScaled = true
     InfoText.TextSize = 14.000
     InfoText.TextWrapped = true
