@@ -1,11 +1,5 @@
 local Module = {}
 
-Information = {
-    ["ScriptName"] = "ezfq",
-    ["NewLoadstring"] = "zef",
-    ["NewLoadstringLink"] = "https://raw.githubusercontent.com/Obisedor/Anomic-Vanguard/refs/heads/main/AdminJoinNotifications"
-}
-
 function Module.CreateOutdatedLoadstringNotification(Information)
 
     local AnomicVanguard_OutdatedLoadstring = Instance.new("ScreenGui")
@@ -36,11 +30,17 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     InfoText.Position = UDim2.new(0.235872239, 0, 0.270100504, 0)
     InfoText.Size = UDim2.new(0.528255522, 0, 0.282663316, 0)
     InfoText.Font = Enum.Font.SourceSans
-    InfoText.Text = "Anomic Vanguard | You are using the wrong loadstring for ! Please, use the new loadstring to continue. Attempted script: - New loadstring:"  
+    InfoText.Text = string.format(
+        "Anomic Vanguard | You are using the wrong loadstring for %s! Please, use the new loadstring to continue.\nAttempted script: %s\nNew loadstring: %s",
+        Information["ScriptName"] or "Unknown Script",
+        Information["NewLoadstring"] or "N/A",
+        Information["NewLoadstringLink"] or "N/A"
+    )
     InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
     InfoText.TextScaled = true
     InfoText.TextSize = 14.000
     InfoText.TextWrapped = true
+    UIStroke.Parent = InfoText
 
     UICorner.CornerRadius = UDim.new(0.200000003, 0)
     UICorner.Parent = InfoText
@@ -59,6 +59,7 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     LoadNew.TextScaled = true
     LoadNew.TextSize = 14.000
     LoadNew.TextWrapped = true
+    UIStroke_2.Parent = LoadNew
 
     UICorner_2.CornerRadius = UDim.new(0.200000003, 0)
     UICorner_2.Parent = LoadNew
@@ -77,6 +78,7 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     Ignore.TextScaled = true
     Ignore.TextSize = 14.000
     Ignore.TextWrapped = true
+    UIStroke_3.Parent = Ignore
 
     UICorner_3.CornerRadius = UDim.new(0.200000003, 0)
     UICorner_3.Parent = Ignore
@@ -97,7 +99,7 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     end)
     LoadNew.MouseButton1Click:Connect(function()
         CloseUI()
-        loadstring(game:HttpGet(Information.NewLoadstringLink))()
+        loadstring(game:HttpGet(Information["NewLoadstringLink"]))()
     end)
 
 end
