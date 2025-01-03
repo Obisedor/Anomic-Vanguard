@@ -3,7 +3,7 @@ local Module = {}
 --[[ local Information = {
     ["ScriptName"] = "",
     ["NewLoadstring"] = "",
-    ["NewLoadstringLink"]
+    ["NewLoadstringLink"] = ""
 } ]]--
 
 
@@ -17,7 +17,7 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     local Ignore = Instance.new("TextButton")
     local UICorner_3 = Instance.new("UICorner")
     local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-    local Blur = Instance.new("Blur")
+    local Blur = Instance.new("BlurEffect")
 
     --Properties:
 
