@@ -2,6 +2,10 @@ local Module = {}
 
 function Module.CreateOutdatedLoadstringNotification(Information)
     warn(Information)
+    for i, v in pairs(Information) do
+        print(i, v)
+    end
+    warn("---------")
 
     local AnomicVanguard_OutdatedLoadstring = Instance.new("ScreenGui")
     local InfoText = Instance.new("TextLabel")
