@@ -61,12 +61,19 @@ function Module:CreateOutdatedLoadstringNotification(Information)
     LoadNew.Position = UDim2.new(0.388206393, 0, 0.57914567, 0)
     LoadNew.Size = UDim2.new(0.22194922, 0, 0.0628140718, 0)
     LoadNew.Font = Enum.Font.SourceSans
-    LoadNew.Text = "Load new loadstring"
+    local Text
+    if Information["NewLoadstringLink"] then
+        Text = "Load new loadstring"
+    else
+        Text = "Failed to get loadstring!"
+    end
     LoadNew.TextColor3 = Color3.fromRGB(255, 255, 255)
     LoadNew.TextScaled = true
     LoadNew.TextSize = 14.000
     LoadNew.TextWrapped = true
     UIStroke_2.Parent = LoadNew
+    UIStroke_2.Thickness = 2
+    UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
     UICorner_2.CornerRadius = UDim.new(0.200000003, 0)
     UICorner_2.Parent = LoadNew
@@ -86,6 +93,8 @@ function Module:CreateOutdatedLoadstringNotification(Information)
     Ignore.TextSize = 14.000
     Ignore.TextWrapped = true
     UIStroke_3.Parent = Ignore
+    UIStroke_3.Thickness = 2
+    UIStroke_3.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
     UICorner_3.CornerRadius = UDim.new(0.200000003, 0)
     UICorner_3.Parent = Ignore
