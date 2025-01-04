@@ -37,9 +37,9 @@ function Module:CreateOutdatedLoadstringNotification(Information)
     InfoText.Font = Enum.Font.SourceSans
     InfoText.Text = string.format(
         "Anomic Vanguard | You are using the wrong loadstring for %s! Please, use the new loadstring to continue.\nAttempted script: %s\nNew loadstring: %s",
-        Information["ScriptName"] or "Unknown Script",
-        Information["NewLoadstring"] or "N/A",
-        Information["NewLoadstringLink"] or "N/A"
+        Information["ScriptName"] or "Unknown script",
+        Information["ScriptName"] or "Unknown script",
+        Information["NewLoadstring"] or "Unknown loadstring"
     )
     InfoText.TextColor3 = Color3.fromRGB(253, 253, 253)
     InfoText.TextScaled = true
