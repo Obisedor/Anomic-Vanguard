@@ -1,6 +1,6 @@
 local Module = {}
 
-function Module.CreateOutdatedLoadstringNotification(Information)
+function Module:CreateOutdatedLoadstringNotification(Information)
     warn(Information)
     for i, v in pairs(Information) do
         print(i, v)
