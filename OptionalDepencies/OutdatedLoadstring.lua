@@ -4,9 +4,6 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     warn(Information)
     for i, v in pairs(Information) do
         print(i, v)
-        for i, v in pairs(i, v) do
-            print(ii, vv)
-        end
     end
     warn("---------")
 
