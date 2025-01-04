@@ -4,6 +4,9 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     warn(Information)
     for i, v in pairs(Information) do
         print(i, v)
+        for i, v in pairs(i, v) do
+            print(ii, vv)
+        end
     end
     warn("---------")
 
@@ -46,6 +49,8 @@ function Module.CreateOutdatedLoadstringNotification(Information)
     InfoText.TextSize = 14.000
     InfoText.TextWrapped = true
     UIStroke.Parent = InfoText
+    UIStroke.Thickness = 2
+    UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 
     UICorner.CornerRadius = UDim.new(0.200000003, 0)
     UICorner.Parent = InfoText
