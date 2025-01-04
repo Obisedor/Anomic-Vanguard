@@ -67,6 +67,7 @@ function Module:CreateOutdatedLoadstringNotification(Information)
     else
         Text = "Failed to get loadstring!"
     end
+    LoadNew.Text = Text
     LoadNew.TextColor3 = Color3.fromRGB(255, 255, 255)
     LoadNew.TextScaled = true
     LoadNew.TextSize = 14.000
