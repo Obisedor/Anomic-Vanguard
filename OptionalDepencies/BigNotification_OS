@@ -1,6 +1,5 @@
 local D = {}
 function D:CreateNotification(Information)
-    warn(Information)
     local Info = Information
 
     if Info.Type == "FullScreen" then
@@ -137,9 +136,9 @@ function D:CreateNotification(Information)
             Blur:Destroy()
         end)
 
-        if DontShowAgain then -- Awesome frosting logic
+        if DontShowAgain then
             DontShowAgainButton.MouseButton1Click:Connect(function()
-
+                -- WIP
             end)
         end
     end
