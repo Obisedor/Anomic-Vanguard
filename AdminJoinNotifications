@@ -86,6 +86,10 @@ IgnoreLabel.TextWrapped = true
 
 local AdditionalAdmins = {
 	["AdmlnALT"] = "Admin"
+	["Mentalizm"] = true,
+	["Kamil29873"] = true,
+	["nilsongamer99"] = true,
+	["Chicken_wings1213"] = true
 }
 
 local AdminInServer = false
