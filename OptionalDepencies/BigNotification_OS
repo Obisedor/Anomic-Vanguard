@@ -23,7 +23,7 @@ function D:CreateNotification(Information)
         Blur.Parent = game.Lighting
 
         AnomicVanguardRiskDisclaimer.Name = "AnomicVanguardNotification"
-        AnomicVanguardRiskDisclaimer.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+        AnomicVanguardRiskDisclaimer.Parent = game:GetService("CoreGui")
         AnomicVanguardRiskDisclaimer.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
         RiskWarningHolder.Name = "RiskWarningHolder"
